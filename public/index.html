@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#061323">
+  <meta name="description" content="RNG Centro de Comando">
+  <title>RNG | Centro de Comando</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="ambient"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="RNG início">
+      <span>R</span>NG
+    </a>
+
+    <div class="header-actions">
+      <a class="discord" href="https://discord.gg/AGRcNJF9q" target="_blank" rel="noreferrer">
+        Entrar no Discord ↗
+      </a>
+      <button id="auth-button" class="button button-outline">Entrar / Cadastrar</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <div class="profile-mini" id="mini-profile"></div>
+
+      <p class="eyebrow">CENTRO DE COMANDO</p>
+      <nav id="nav" class="nav" aria-label="Categorias"></nav>
+
+      <div class="side-note">
+        <strong>ACESSO POR CADASTRO</strong>
+        <small>Crie uma conta para entrar como Aluno. Cargos de Líder e Treinador são definidos pela administração.</small>
+      </div>
+    </aside>
+
+    <section class="content" id="content" aria-live="polite"></section>
+  </main>
+
+  <dialog id="modal" class="modal">
+    <form method="dialog" class="modal-card">
+      <button class="close" value="cancel" aria-label="Fechar">×</button>
+      <div id="modal-content"></div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="/store.js" defer></script>
+  <script src="/training.js" defer></script>
+  <script src="/promotion.js" defer></script>
+  <script src="/app.js" defer></script>
+</body>
+</html>
