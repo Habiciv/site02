@@ -20,5 +20,10 @@
       "updatedAt": null
     }
   },
-  "trainings": [[], [], []]
+  "trainings": [[], [], []],
+  "trainingProgress": [
+    { "xp": 0, "unlocked": 0 },
+    { "xp": 0, "unlocked": 0 },
+    { "xp": 0, "unlocked": 0 }
+  ]
 }
