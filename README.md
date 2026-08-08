@@ -1,92 +1,65 @@
-# RNG Centro de Comando
+# RNG Centro de Comando — versão para hospedagem
 
-Projeto organizado do Centro de Comando RNG, pronto para GitHub + Railway/Render.
+Sistema web da RNG com cadastro, autenticação, 7 cargos e área de Link Profissional.
 
-## Estrutura
+## Cargos
 
-```text
-RNG-Centro-Comando/
-├── server.js
-├── package.json
-├── package-lock.json
-├── .env.example
-├── .gitignore
-├── Procfile
-├── render.yaml
-├── discord-bot.js
-├── data/
-│   └── .gitkeep
-└── public/
-    ├── index.html
-    ├── style.css
-    ├── app.js
-    ├── training.js
-    ├── promotion.js
-    └── store.js
-```
+- Proprietário
+- Líder
+- Treinador
+- Aluno
 
-## Rodar no Windows
+Novos cadastros entram como **Aluno**.
 
-Instale o Node.js LTS. Depois, no CMD dentro da pasta:
+## Permissões
 
-```bash
-npm install
-npm start
-```
+- **Proprietário:** controle total sobre o site e os demais cargos.
+- **Líder e Treinador:** acessam suas funções e podem definir usuários como Aluno, Treinador ou Líder.
+- **Link Profissional:** disponível somente para Proprietário, Líder e Treinador.
 
-Abra:
+As permissões são validadas no servidor e também refletidas na interface.
 
-```text
-http://localhost:3000
-```
+## Publicação
 
-## Variáveis no Railway/Render
+O servidor usa a variável `PORT` fornecida pela plataforma de hospedagem. Não há dependências externas obrigatórias: basta Node.js.
 
-Configure no painel da hospedagem:
+### Render
 
-```text
-OWNER_EMAIL=seu-email
-INITIAL_OWNER_PASSWORD=sua-senha
-SESSION_SECRET=uma-chave-com-32-caracteres-ou-mais
-```
+O arquivo `render.yaml` já está incluído para facilitar a implantação. Ele configura:
 
-O `DISCORD_BOT_TOKEN` é usado somente quando o bot do Discord for executado como serviço separado.
+- Node.js
+- `npm start`
+- `NODE_ENV=production`
+- variáveis secretas para proprietário e sessão
+- armazenamento persistente para `data/users.json`
 
-## GitHub
+Na publicação, defina `OWNER_EMAIL` e `INITIAL_OWNER_PASSWORD`. O `SESSION_SECRET` pode ser gerado pela própria configuração do Render.
 
-O arquivo `server.js` e o `package.json` ficam na raiz.
+Depois da publicação, a plataforma fornecerá um endereço HTTPS público. Esse é o endereço que você deve compartilhar — não use `localhost`.
 
-A pasta `public` precisa ficar na raiz também:
+### Outras plataformas Node.js
 
-```text
-public/index.html
-public/style.css
-public/app.js
-public/training.js
-public/promotion.js
-public/store.js
-```
+Use:
 
-Não coloque o projeto dentro de uma segunda pasta.
+- Build: `npm install`
+- Start: `npm start`
 
-## Railway
+Configure as variáveis:
 
-1. Crie um projeto no Railway.
-2. Conecte o repositório GitHub.
-3. O Railway deve detectar Node.js.
-4. Start command:
+- `NODE_ENV=production`
+- `OWNER_EMAIL=...`
+- `INITIAL_OWNER_PASSWORD=...`
+- `SESSION_SECRET=...` (mínimo de 32 caracteres)
+- `PORT` é normalmente fornecida automaticamente pela hospedagem.
 
-```text
-npm start
-```
+**Importante:** como os usuários são armazenados em `data/users.json`, a hospedagem precisa oferecer armazenamento persistente. Sem isso, cadastros podem ser perdidos quando a aplicação for reiniciada ou redeployada.
 
-5. Configure as variáveis de ambiente.
-6. Gere um domínio público em Networking.
+## Desenvolvimento local
 
-## Observação sobre dados
+1. Instale o Node.js LTS.
+2. Copie `.env.example` para `.env`.
+3. Preencha os valores do proprietário e da sessão.
+4. Execute `Iniciar site.cmd` no Windows ou `npm start` no terminal.
+5. Abra `http://localhost:3000`.
 
-A versão atual usa `data/users.json` para simplificar a instalação. Em hospedagens com filesystem efêmero, cadastros podem não ser permanentes após reinicializações/redeploys. Para uso real, o próximo passo recomendado é migrar usuários e configurações para PostgreSQL.
-
-## Discord
-
-`discord-bot.js` é um serviço separado do site. Não altere o Start Command do site para executar o bot.
+Nunca publique `.env` nem senhas reais em um repositório público.

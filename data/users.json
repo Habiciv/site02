@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "id": "ab5f8f97-0a60-41ef-8154-c86ccf62cc04",
+      "name": "Proprietário RNG",
+      "email": "lf1105111@gmail.com",
+      "passwordSalt": "b55cf231053bf51b27acdb93324502b0",
+      "passwordHash": "9c9ad000f1bb79fa718e0ea7b8c38fb4305992696cb8ca8433f95fcf573309e30509f7c1e9a7540d4eaf8f2556f58a078cb39276dc2903a526e1047d597b698f",
+      "role": "owner",
+      "approved": true,
+      "createdAt": "2026-08-08T16:48:38.054Z"
+    }
+  ],
+  "settings": {
+    "promotion": {
+      "title": "Promoção RNG",
+      "description": "Compartilhe esta oportunidade com a comunidade.",
+      "code": "",
+      "active": false,
+      "updatedAt": null
+    }
+  }
+}
