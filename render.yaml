@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: rng-centro-comando
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: OWNER_EMAIL
+        sync: false
+      - key: INITIAL_OWNER_PASSWORD
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: SYNC_API_KEY
+        generateValue: true
+    disk:
+      name: rng-data
+      mountPath: /opt/render/project/src/data
+      sizeGB: 1
