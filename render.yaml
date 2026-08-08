@@ -13,21 +13,7 @@ services:
         sync: false
       - key: SESSION_SECRET
         generateValue: true
-      - key: SYNC_API_KEY
-        sync: false
     disk:
       name: rng-data
       mountPath: /opt/render/project/src/data
       sizeGB: 1
-  - type: worker
-    name: rng-discord-bot
-    runtime: node
-    buildCommand: npm install
-    startCommand: npm run bot
-    envVars:
-      - key: DISCORD_BOT_TOKEN
-        sync: false
-      - key: SITE_URL
-        sync: false
-      - key: SYNC_API_KEY
-        sync: false

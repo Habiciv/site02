@@ -63,10 +63,3 @@ Configure as variáveis:
 5. Abra `http://localhost:3000`.
 
 Nunca publique `.env` nem senhas reais em um repositório público.
-
-## Bot do Discord (opcional)
-
-O arquivo `discord-bot.js` sincroniza entradas, atualizações e banimentos do servidor do Discord com o site. Para usá-lo:
-
-1. Defina `DISCORD_BOT_TOKEN`, `SITE_URL` (endereço público do site) e `SYNC_API_KEY` (a mesma chave no site e no bot) no `.env`.
-2. Rode `npm run bot` num processo separado do site (no Render, use um serviço do tipo *worker*, já incluso em `render.yaml`).
