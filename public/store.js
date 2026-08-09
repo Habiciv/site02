@@ -6,4 +6,6 @@
   }
   button('07', 'Loja', showStore);
   button('08', 'Divulgação', () => window.showPromotion());
+  button('09', 'Recuperar senha', () => window.showPasswordRecovery());
+  button('10', 'Mídias da RNG', () => window.showRngMedia());
 })();
