@@ -1,9 +1,1 @@
-{
-  "name": "rng-centro-comando",
-  "version": "1.1.0",
-  "private": true,
-  "type": "module",
-  "engines": { "node": ">=20" },
-  "scripts": { "start": "node server.js" },
-  "dependencies": { "nodemailer": "^7.0.6" }
-}
+{"name":"rng-sistema-provas","private":true,"version":"9.0.0","scripts":{"start":"node server.js"},"engines":{"node":">=22"}}
